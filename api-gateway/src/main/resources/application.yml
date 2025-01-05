@@ -2,3 +2,12 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:9000/eureka
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: userService
+        uri: lb://user-service
+        predicates:
+        - Path=/user/**
